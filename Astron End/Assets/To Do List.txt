@@ -1,0 +1,7 @@
+Make a objective board for turning off 5 breakers around the level to power up the servers. After that the player will be able to enter the control room, and also enable full power
+
+Doors that open once the breakers are turned off, if there is breakers lefts when you get near the door it says (turn off all breakers) in red text and if the breakers are all off it says (press F to open door) in green 
+
+An event that triggers after the SOS button is pressed in the control room, and causes the whole facility lights to shut off and then the timer to countdown. 
+
+P.S there was a glitch with the NVG where it would go to -10 percentage and so on
