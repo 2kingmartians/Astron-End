@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4422795218490638}
   - component: {fileID: 198685173181416086}
   - component: {fileID: 199475379085030590}
+  - component: {fileID: 135086843959763782}
+  - component: {fileID: 114695002524666402}
   m_Layer: 0
   m_Name: NEW Poision
   m_TagString: Untagged
@@ -35,12 +37,37 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830192443549876}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.219, y: 0.233, z: -3.249}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114695002524666402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830192443549876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58221087ef7fc224b8cfa65f083008ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAfterSecs: 1
+  damage: 10
+--- !u!135 &135086843959763782
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830192443549876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.09
+  m_Center: {x: 0.094937325, y: -0.25511748, z: 0.4743084}
 --- !u!198 &198685173181416086
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -101,7 +128,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -567340889
+  randomSeed: -1508382763
   InitialModule:
     serializedVersion: 3
     enabled: 1

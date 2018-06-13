@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -28,21 +27,20 @@ public class Inventory : MonoBehaviour
 
     public Vector3 offset;
 
+    public GameObject defaultItem;
+
     public bool Add(Item item)
     {
-        if (!item.isDefaultItem)
+        if (items.Count >= space)
         {
-            if(items.Count >= space)
-            {
-                Debug.Log("Not Enough Room");
-                return false;
-            }
-            items.Add(item);
+            Debug.Log("Not Enough Room");
+            return false;
+        }
+        items.Add(item);
 
-            if (onItemChangedCallback != null)
-            {
-                onItemChangedCallback.Invoke();
-            }
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
         }
 
         return true;
@@ -59,15 +57,10 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
-        if(item.obj == null)
-        {
-            Debug.LogError("There was no object set for: " + item.name);
-            return;
-        }
-
         Vector3 spawnPos = GetPlayer.player.transform.position + GetPlayer.player.transform.forward * 2;
-
-        GameObject obj = Instantiate(item.obj, spawnPos, GetPlayer.player.transform.rotation);
+        GameObject obj = Instantiate(defaultItem, spawnPos, GetPlayer.player.transform.rotation);
+        obj.GetComponent<ItemPickUp>().item = item;
+        obj.GetComponent<ItemPickUp>().item.SetUp(obj.transform);
 
         items.Remove(item);
         if (onItemChangedCallback != null)

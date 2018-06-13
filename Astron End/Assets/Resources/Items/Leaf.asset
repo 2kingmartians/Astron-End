@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Leaf
   icon: {fileID: 21300000, guid: df6267d5f94c18049b4f55db17f98fe2, type: 3}
-  isDefaultItem: 0
-  obj: {fileID: 1899926755268376, guid: 33cf25377d0433d489f7448394228e0b, type: 2}
+  itemModel: {fileID: 1853996947752442, guid: 335bff61172a1ab418ea65f72638e425, type: 2}
+  orientation: {x: 0, y: 0, z: 0}
+  equipedModel: {fileID: 0}

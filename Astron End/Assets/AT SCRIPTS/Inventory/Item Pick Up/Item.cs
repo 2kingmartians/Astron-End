@@ -4,16 +4,21 @@
 public class Item : ScriptableObject {
 
     new public string name = "New Item";
+    [TextArea(2, 5)]
+    public string itemDescription = "Item Description";
     public Sprite icon = null;
     public bool isDefaultItem = false;
     public GameObject obj;
 
-    public virtual void Use()
+    public GameObject itemModel;
+    public Vector3 orientation;
+
+    public GameObject equipedModel;
+
+    public void SetUp(Transform position)
     {
-        //Use Item
-        //Something might happen
-
-        Debug.Log("Using " + name);
+        GameObject obj = Instantiate(itemModel, position.position, Quaternion.Euler(orientation));
+        obj.transform.SetParent(position);
+        obj.transform.localPosition = Vector3.zero;
     }
-
 }

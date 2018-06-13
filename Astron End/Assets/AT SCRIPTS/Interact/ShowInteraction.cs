@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowInteraction : MonoBehaviour {
 
     public float distance = 5f;
-    public GameObject cam;
+    GameObject cam;
 
     private void Start()
     {

@@ -1,21 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Interactable))]
 public class ItemPickUp : MonoBehaviour {
 
     Interactable interact;
 
     public Item item;
 
-    private void Awake()
+    private void OnEnable()
     {
-        interact = GetComponent<Interactable>();
+        if(item != null)
+        {
+            item.SetUp(transform);
+        }
+
+        interact = GetComponentInChildren<Interactable>();
+
+        if (GetComponent<MeshRenderer>() != null)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     private void Update()
     {
+        if (interact == null)
+        {
+            if(GetComponentInChildren<Interactable>() != null)
+            {
+                interact = GetComponentInChildren<Interactable>();
+            }
+            else
+            {
+                Debug.LogError("There is no Interactable Script on the child of: " + name);
+            }
+        }
+
         if (interact.interacted)
         {
             PickUp();
@@ -30,7 +49,7 @@ public class ItemPickUp : MonoBehaviour {
 
         if (wasPickedUp)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Band Aid
   icon: {fileID: 21300000, guid: 26f759e6419e5964abed5e1f16ae20c0, type: 3}
-  isDefaultItem: 0
-  obj: {fileID: 1093395574871166, guid: e77ec1f72271c9643a20b5a0852e1b6e, type: 2}
+  itemModel: {fileID: 1152114873539994, guid: 14ba7d42a2dfbf647901892ea28e8bc1, type: 2}
+  orientation: {x: 0, y: 0, z: 0}
+  equipedModel: {fileID: 1160569209490910, guid: 5e1c7503eb36502418293d4cabb6ee43,
+    type: 2}

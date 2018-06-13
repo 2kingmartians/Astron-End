@@ -6,6 +6,6 @@ public class Interactable : MonoBehaviour {
 
     public bool isInteractable = true;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool interacted = false;
 }

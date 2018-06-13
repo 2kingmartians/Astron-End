@@ -2,9 +2,20 @@
 
 public class InventoryUI : MonoBehaviour {
 
+    #region Singleton
+    public static InventoryUI instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     public Transform itemsParent;
     public GameObject inventoryUI;
     public GameObject craftingUI;
+    [HideInInspector]
+    public bool inventoryEnabled = false;
 
     Inventory inventory;
 
@@ -35,6 +46,8 @@ public class InventoryUI : MonoBehaviour {
                 GetPlayer.player.GetComponentInChildren<canMouseLook>().enabled = false;
                 GetPlayer.player.GetComponent<characterJump>().enabled = false;
 
+                inventoryEnabled = true;
+
                 Crafting.instance.UpdateCrafting();
             }
             else
@@ -46,6 +59,8 @@ public class InventoryUI : MonoBehaviour {
 
                 GetPlayer.player.GetComponentInChildren<canMouseLook>().enabled = true;
                 GetPlayer.player.GetComponent<characterJump>().enabled = true;
+
+                inventoryEnabled = false;
             }
         }
 	}

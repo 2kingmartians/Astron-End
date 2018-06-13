@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -66,15 +65,19 @@ public class Crafting : MonoBehaviour {
 
         foreach(Recipie recipie in recipies)
         {
-            foreach(Item item in itemsInInvntory)
+            List<Item> previousItems = new List<Item>();
+            foreach (Item item in itemsInInvntory)
             {
-                if(item == recipie.Input01 || item == recipie.Input02)
-                {
-                    x += 1;
+                if(!previousItems.Contains(item)) {
+                    if (item == recipie.Input01 || item == recipie.Input02)
+                    {
+                        x += 1;
+                    }
+                    previousItems.Add(item);
                 }
             }
 
-            if(x == 2)
+            if(x >= 2)
             {
                 if (!availableRecipies.Contains(recipies[i]))
                 {
@@ -157,6 +160,7 @@ public class Crafting : MonoBehaviour {
     public void CraftItem()
     {
         Craft(currentRecipie.Input01, currentRecipie.Input02, currentRecipie.Result);
+        UpdateCrafting();
     }
 
     void Craft(Item input01, Item input02, Item result)

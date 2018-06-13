@@ -15,7 +15,6 @@ public class Health : MonoBehaviour{
     public Animation hurtFlash;
 
     bool isDead = false;
-    bool isDamaged = false;
 
     bool isRagDoll = false;
 
@@ -33,18 +32,13 @@ public class Health : MonoBehaviour{
 
     private void Update()
     {
-        float targetHealth = Mathf.Lerp(healthSlider.value, currentHealth, Time.deltaTime * speedToGoDownBy);
-        healthSlider.value = targetHealth;
-
-        if (targetHealth == currentHealth)
-        {
-            isDamaged = false;
-        }
-
         if (currentHealth > startingHealth)
         {
             currentHealth = startingHealth;
         }
+
+        float targetHealth = Mathf.Lerp(healthSlider.value, currentHealth, Time.deltaTime * speedToGoDownBy);
+        healthSlider.value = targetHealth;
     }
 
     public void TakeDamage(float damage)
@@ -53,7 +47,6 @@ public class Health : MonoBehaviour{
         {
             return;
         }
-        isDamaged = true;
         currentHealth -= damage;
 
         if(currentHealth <= 0)
