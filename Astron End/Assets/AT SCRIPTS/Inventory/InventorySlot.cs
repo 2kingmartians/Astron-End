@@ -12,9 +12,13 @@ public class InventorySlot : MonoBehaviour
     [HideInInspector]
     public Item item;
 
-    private void Start()
+    private void Awake()
     {
         equipButton = icon.GetComponent<Button>();
+    }
+
+    private void Start()
+    {
         EquipManager equipManager = EquipManager.instance;
         equipManager.onUnEquipCallBack += DisableSelectedImage;
     }

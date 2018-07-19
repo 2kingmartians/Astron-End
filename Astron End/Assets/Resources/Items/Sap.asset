@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sap
   icon: {fileID: 21300000, guid: 28a28ef523bc0f7458344e1e7b51744d, type: 3}
-  itemModel: {fileID: 1853996947752442, guid: 335bff61172a1ab418ea65f72638e425, type: 2}
+  itemModel: {fileID: 1740620158396112, guid: 45a42afdf1c71824baf26c6366363019, type: 2}
   orientation: {x: 0, y: 0, z: 0}
   equipedModel: {fileID: 0}

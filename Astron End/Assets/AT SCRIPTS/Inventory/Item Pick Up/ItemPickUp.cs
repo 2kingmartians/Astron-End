@@ -8,16 +8,17 @@ public class ItemPickUp : MonoBehaviour {
 
     private void OnEnable()
     {
-        if(item != null)
-        {
-            item.SetUp(transform);
-        }
 
         interact = GetComponentInChildren<Interactable>();
 
         if (GetComponent<MeshRenderer>() != null)
         {
             GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        if (item != null)
+        {
+            item.SetUp(transform);
         }
     }
 
@@ -29,16 +30,15 @@ public class ItemPickUp : MonoBehaviour {
             {
                 interact = GetComponentInChildren<Interactable>();
             }
-            else
-            {
-                Debug.LogError("There is no Interactable Script on the child of: " + name);
-            }
         }
 
-        if (interact.interacted)
+        if(interact != null)
         {
-            PickUp();
-            interact.interacted = false;
+            if (interact.interacted)
+            {
+                PickUp();
+                interact.interacted = false;
+            }
         }
     }
 

@@ -4,11 +4,9 @@
 public class Item : ScriptableObject {
 
     new public string name = "New Item";
-    [TextArea(2, 5)]
-    public string itemDescription = "Item Description";
+    /*[TextArea(2, 5)]
+    public string itemDescription = "Item Description";*/
     public Sprite icon = null;
-    public bool isDefaultItem = false;
-    public GameObject obj;
 
     public GameObject itemModel;
     public Vector3 orientation;

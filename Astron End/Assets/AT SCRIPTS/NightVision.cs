@@ -14,11 +14,13 @@ public class NightVision : MonoBehaviour {
     public GameObject OverLay;
     public Slider percentLeft;
     public TextMeshProUGUI text;
+    AudioSource audioSource;
 
     private void Start()
     {
         seconds = timeRemainingToStart * 60;
         ToggleNightVision();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,6 +55,7 @@ public class NightVision : MonoBehaviour {
             percentLeft.gameObject.SetActive(true);
             CameraLight.gameObject.SetActive(true);
             OverLay.SetActive(true);
+            audioSource.Play();
         }
         else if (!NightVisionEnabled)
         {

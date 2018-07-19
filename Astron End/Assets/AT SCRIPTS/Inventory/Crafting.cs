@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Crafting : MonoBehaviour {
+
     #region Singleton
     public static Crafting instance;
 
@@ -22,8 +23,16 @@ public class Crafting : MonoBehaviour {
     public Recipie[] recipies;
     public List<Recipie> availableRecipies;
 
+    //Recipies in total that can be unlocked
+    public List<Blueprint> unlockableRecipies;
+    //Recipies that have been unlocked
+    public List<Recipie> recipiesUnlocked;
+    //Recipies still to be unlocked
+    public List<Recipie> recipiesToBeUnlocked;
+
     public Item[] itemsInInvntory;
 
+    #region UI
     public TextMeshProUGUI resultName;
     public Recipie currentRecipie;
     public Image Slot01;
@@ -32,6 +41,7 @@ public class Crafting : MonoBehaviour {
     public Button Next;
     public Button Back;
     public Button CraftIt;
+    #endregion
 
     public int index = 0;
 
@@ -41,6 +51,10 @@ public class Crafting : MonoBehaviour {
     public void Start()
     {        
         recipies = Resources.LoadAll<Recipie>("Recipies");
+
+        //Gets all possible recipies
+        Blueprint[] bp = Resources.LoadAll<Blueprint>("Blueprints");
+        unlockableRecipies = new List<Blueprint>(bp);
     }
 
     public void UpdateCrafting()
@@ -53,8 +67,28 @@ public class Crafting : MonoBehaviour {
     void CheckForRecipies()
     {
         availableRecipies.Clear();
+        recipiesUnlocked.Clear();
+        recipiesToBeUnlocked.Clear();
 
-        if(itemsInInvntory.Length == 0)
+        //Gets all unlocked recipies
+        List<Blueprint> bp = BlueprintManager.instance.blueprints;
+        foreach(Blueprint blueprint in bp)
+        {
+            recipiesUnlocked.Add(blueprint.unlockedRecipe);
+        }
+
+        foreach(Blueprint blueprint in unlockableRecipies)
+        {
+            recipiesToBeUnlocked.Add(blueprint.unlockedRecipe);
+        }
+
+        foreach(Recipie recipie in recipiesUnlocked)
+        {
+            recipiesToBeUnlocked.Remove(recipie);
+        }
+
+
+        if (itemsInInvntory.Length == 0)
         {
             Debug.Log("No Items In Inventory");
             return;
@@ -87,6 +121,13 @@ public class Crafting : MonoBehaviour {
             i += 1;
             x = 0;
         }
+
+        foreach(Recipie recipie in recipiesToBeUnlocked)
+        {
+            availableRecipies.Remove(recipie);
+        }
+
+
     }
 
     public void UpdateUI()

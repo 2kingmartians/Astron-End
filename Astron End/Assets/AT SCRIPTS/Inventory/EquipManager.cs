@@ -50,8 +50,6 @@ public class EquipManager : MonoBehaviour {
             currentlyEquiped.transform.SetParent(equiedItemHolder);
         }
 
-
-
         Debug.Log("Equip: " + item.name);
         return true;
     }
@@ -62,11 +60,11 @@ public class EquipManager : MonoBehaviour {
         {
             Destroy(currentlyEquiped);
             item = null;
-            currentlyEquiped = null;
             if(onUnEquipCallBack != null)
             {
                 onUnEquipCallBack.Invoke();
             }
+            currentlyEquiped = null;
         }
         else
         {

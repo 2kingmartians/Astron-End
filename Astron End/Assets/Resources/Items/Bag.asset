@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bag
   icon: {fileID: 21300000, guid: 012999905404abc418ef9ce749eb0fc6, type: 3}
-  isDefaultItem: 0
-  itemModel: {fileID: 1180516466647876, guid: a0df14ccac7945e49afff96a027d3f05, type: 2}
+  itemModel: {fileID: 1740620158396112, guid: 45a42afdf1c71824baf26c6366363019, type: 2}
+  orientation: {x: 0, y: 0, z: 0}
+  equipedModel: {fileID: 0}

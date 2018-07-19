@@ -44,7 +44,7 @@ public class InventoryUI : MonoBehaviour {
                 toggleCursor.curserEnabled = true;
 
                 GetPlayer.player.GetComponentInChildren<canMouseLook>().enabled = false;
-                GetPlayer.player.GetComponent<characterJump>().enabled = false;
+                GetPlayer.player.GetComponent<CharacterMovement>().enabled = false;
 
                 inventoryEnabled = true;
 
@@ -58,7 +58,7 @@ public class InventoryUI : MonoBehaviour {
                 toggleCursor.curserEnabled = false;
 
                 GetPlayer.player.GetComponentInChildren<canMouseLook>().enabled = true;
-                GetPlayer.player.GetComponent<characterJump>().enabled = true;
+                GetPlayer.player.GetComponent<CharacterMovement>().enabled = true;
 
                 inventoryEnabled = false;
             }

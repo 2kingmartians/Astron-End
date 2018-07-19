@@ -84,7 +84,7 @@ public class Health : MonoBehaviour{
         if (isRagDoll)
         {
             player.GetComponent<CharacterController>().enabled = !isRagDoll;
-            player.GetComponent<characterJump>().enabled = !isRagDoll;
+            player.GetComponent<CharacterMovement>().enabled = !isRagDoll;
             player.GetComponentInChildren<canMouseLook>().enabled = !isRagDoll;
             player.GetComponentInChildren<NightVision>().enabled = !isRagDoll;
 
