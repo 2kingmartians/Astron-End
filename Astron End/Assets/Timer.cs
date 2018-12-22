@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -26,6 +27,14 @@ public class Timer : MonoBehaviour
         {
             timerText.color = Color.red;
         }
+		if (((int)AstronTimer / 1) < 0) 
+		{
+			timerText.color = Color.black;
+
+			UnityEngine.SceneManagement.SceneManager.LoadScene(3);
+		}
+
+			
         timerText.text = mins + ":" + seconds;
     }
 }
