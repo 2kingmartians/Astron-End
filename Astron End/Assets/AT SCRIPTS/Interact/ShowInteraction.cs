@@ -11,6 +11,7 @@ public class ShowInteraction : MonoBehaviour {
     private void Start()
     {
         cam = GetPlayer.player.GetComponentInChildren<Camera>().gameObject;
+        ChangeColor(Color.green);
     }
 
     public void Update()
